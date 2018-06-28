@@ -39,7 +39,8 @@
         "one-var-declaration-per-line": 0,
         "no-param-reassign": ["error", { "props": false }],
         "object-curly-newline": 0,
-        "quotes": 0
+        "quotes": 0,
+        "no-plusplus": 0
     },
     "globals": {
         "angular": false,
