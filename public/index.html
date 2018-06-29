@@ -30,38 +30,42 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Keno Server</a>
+      <a class="navbar-brand" href="#">Keno Game Server API Tester</a>
     </nav>
   </header>
 
   <!-- Begin page content -->
   <main role="main" class="container">
-    <h1 class="mt-5">Keno Game Server API Tester</h1>
+    <br>
     <p class="lead">Press the
       <strong>Start a Random Pick</strong> button to start a new round of Keno game with random pick and wager, and observe the server response.</p>
     <p>You can think of this page as a text-based
       <a target="_blank" href="https://apps.facebook.com/kenoempire/?fb_source=bookmark&ref=bookmarks&count=0&fb_bmpos=_0">Keno game</a>, without the lottery UI.</p>
     <hr class="my-4">
-    <button id="start-game-button" type="button" class="btn btn-primary btn-lg" ng-click="ctrl.startGame()">Start a Random Pick</button>
-    <button id="start-game-button" type="button" class="btn btn-warning btn-lg" ng-click="ctrl.clearRecords()">Clear Records</button>
+    <button id="start-game-button" type="button" class="btn btn-primary" ng-click="ctrl.startGame()">Start a Random Pick</button>
+    <button id="start-game-button" type="button" class="btn btn-warning" ng-click="ctrl.clearRecords()">Clear Records</button>
   </main>
 
   <div class="container">
     <table class="table">
       <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Random Pick</th>
-          <th scope="col">Random Wager</th>
-          <th scope="col">Won</th>
+        <tr class="row">
+          <th scope="col" class="col-1">#</th>
+          <th scope="col" class="col-3">Picks</th>
+          <th scope="col" class="col-2">Picks Count</th>
+          <th scope="col" class="col-2">Hit Count</th>
+          <th scope="col" class="col-2">Random Wager</th>
+          <th scope="col" class="col-2">Won</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="result in ctrl.results track by result.number" class="repeated-item">
-          <th scope="row">{{result.number}}</th>
-          <td>[{{result.spots.join(", ")}}]</td>
-          <td>{{result.wager}}</td>
-          <td>{{result.reward}}</td>
+        <tr ng-repeat="result in ctrl.results track by result.number" class="row repeated-item {{result.reward > 0 ? 'table-success' : 'table-secondary'}}">
+          <th scope="row" class="col-1">{{result.number}}</th>
+          <td class="col-3">[{{result.spots_played.join(", ")}}]</td>
+          <td class="col-2">{{result.spots_played.length}}</td>
+          <td class="col-2">{{result.hit_count}}</td>
+          <td class="col-2">{{result.wager}}</td>
+          <td class="col-2">{{result.reward}}</td>
         </tr>
       </tbody>
     </table>
