@@ -1,14 +1,13 @@
 const getRandomIntInclusive = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const payTable = [
-  null, null, null, null, // 0, 1, 2, 3 pick: no winnings.
-  [0, 0, 1, 5, 81], 
-  [0, 0, 1, 2, 15, 75], 
-  [0, 0, 0, 2, 6, 77, 150], 
-  [0, 0, 0, 1, 3, 14, 300, 1e3], 
-  [0, 0, 0, 1, 2, 5, 77, 200, 1e3], 
-  [0, 0, 0, 0, 1, 6, 50, 166, 500, 1e3], 
-  [0, 0, 0, 0, 1, 5, 10, 90, 275, 500, 1e3]
+  null, null, null, null, null, // 0, 1, 2, 3, 4 pick: no winnings.
+  [0, 0, 1, 2, 15, 75], // 5
+  [0, 0, 0, 2, 6, 77, 150], // 6
+  [0, 0, 0, 1, 3, 14, 300, 1e3], // 7
+  [0, 0, 0, 1, 2, 5, 77, 200, 1e3], // 8
+  [0, 0, 0, 0, 1, 6, 50, 166, 500, 1e3], // 9
+  [0, 0, 0, 0, 1, 5, 10, 90, 275, 500, 1e3] // 10
 ];
 
 const pick20 = () => {
@@ -31,4 +30,6 @@ const getMatches = (pick20s, spots) => {
   return matched;
 };
 
-export { getRandomIntInclusive, pick20, getMatches };
+const getWinAmount = (numPicked, numMatched, wager) => payTable[numPicked][numMatched] * wager;
+
+module.exports = { pick20, getMatches, getWinAmount };

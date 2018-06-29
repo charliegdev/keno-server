@@ -1,7 +1,7 @@
 
-import * as getResponseObject from "../keno-math/gameplay";
-
+// import * as getResponseObject from "../keno-math/gameplay";
 const express = require('express');
+const getResponseObject = require("../keno-math/gameplay");
 
 const router = express.Router();
 
@@ -11,10 +11,7 @@ router.post('/', ({ body }, res, next) => {
   const { spots, wager } = body;
 
   const result = getResponseObject(spots, wager);
-
-  const response = Object.assign({}, body, result);
-
-  res.send(response);
+  res.send(result);
 });
 
 module.exports = router;

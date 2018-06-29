@@ -3,12 +3,8 @@ angular.module("KenoApp").controller("KenoController", ["KenoService", function 
   let number = 0;
   this.startGame = () => {
     KenoService.startGame().then(({ data }) => {
-      this.results.push({ 
-        number,
-        spots: data.spots,
-        wager: data.wager,
-        won: data.won
-      });
+      const { spots_played, wager, draw } = data;
+      this.results.push({ number, spots_played, wager, reward: draw.reward });
       number++;
     }, error => {
       console.error(error);

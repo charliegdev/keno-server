@@ -40,7 +40,8 @@
         "no-param-reassign": ["error", { "props": false }],
         "object-curly-newline": 0,
         "quotes": 0,
-        "no-plusplus": 0
+        "no-plusplus": 0,
+        "camelcase": 0
     },
     "globals": {
         "angular": false,
