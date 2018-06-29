@@ -16,7 +16,9 @@
 
   <!-- Custom styles for this template -->
   <link href="stylesheets/sticky-footer-navbar.css" rel="stylesheet">
+  <link href="stylesheets/animation.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
   <script src="javascripts/KenoApp.js"></script>
   <script src="javascripts/kenoService.js"></script>
   <script src="javascripts/SelectionService.js"></script>
@@ -36,11 +38,12 @@
   <main role="main" class="container">
     <h1 class="mt-5">Keno Game Server API Tester</h1>
     <p class="lead">Press the
-      <strong>Start</strong> down below to start a new round of Keno game, and observe the server response.</p>
+      <strong>Start a Random Pick</strong> button to start a new round of Keno game with random pick and wager, and observe the server response.</p>
     <p>You can think of this page as a text-based
       <a target="_blank" href="https://apps.facebook.com/kenoempire/?fb_source=bookmark&ref=bookmarks&count=0&fb_bmpos=_0">Keno game</a>, without the lottery UI.</p>
     <hr class="my-4">
-    <button id="start-game-button" type="button" class="btn btn-primary btn-lg" ng-click="ctrl.startGame()">Start</button>
+    <button id="start-game-button" type="button" class="btn btn-primary btn-lg" ng-click="ctrl.startGame()">Start a Random Pick</button>
+    <button id="start-game-button" type="button" class="btn btn-warning btn-lg" ng-click="ctrl.clearRecords()">Clear Records</button>
   </main>
 
   <div class="container">
@@ -48,13 +51,13 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Pick</th>
-          <th scope="col">Wager</th>
+          <th scope="col">Random Pick</th>
+          <th scope="col">Random Wager</th>
           <th scope="col">Won</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="result in ctrl.results track by result.number">
+        <tr ng-repeat="result in ctrl.results track by result.number" class="repeated-item">
           <th scope="row">{{result.number}}</th>
           <td>[{{result.spots.join(", ")}}]</td>
           <td>{{result.wager}}</td>
@@ -67,7 +70,7 @@
 
   <footer class="footer">
     <div class="container">
-      <span class="text-muted">Place sticky footer content here.</span>
+      <span class="text-muted">Author: Charlie Guan <a href="https://github.com/charliegdev/">GitHub</a></span>
     </div>
   </footer>
 

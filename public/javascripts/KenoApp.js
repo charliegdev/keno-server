@@ -1,1 +1,1 @@
-angular.module("KenoApp", []);
+angular.module("KenoApp", ['ngAnimate']);

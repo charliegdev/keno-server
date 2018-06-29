@@ -14,4 +14,9 @@ angular.module("KenoApp").controller("KenoController", ["KenoService", function 
       console.error(error);
     });
   };
+
+  this.clearRecords = () => { 
+    this.results.length = 0;
+    number = 0; 
+  };
 }]);
