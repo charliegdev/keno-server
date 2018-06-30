@@ -7,7 +7,8 @@ const getResponseObj = (userPicks, wager) => {
   const reward = getWinAmount(userPicks.length, matchedNumbers.length, wager);
   const id = uuidv4();
 
-  // The response includes a unique draw ID, the user’s input, the numbers drawn, winnings, and current timestamp.
+  // As pre requested in the email: the response includes a unique draw ID, the user’s input, the numbers drawn, winnings, and current timestamp.
+  // This response structure reflects the Caveman game response.data, minus the eggs.
   return { 
     draw: {
       created: (new Date()).toISOString(),

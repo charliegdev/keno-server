@@ -14,9 +14,7 @@ const pick20 = () => {
   const picks = [];
   while (picks.length < 20) {
     const pick = getRandomIntInclusive(1, 80);
-    if (!picks.includes(pick)) {
-      picks.push(pick);
-    }
+    if (!picks.includes(pick)) picks.push(pick);
   }
   return picks;
 };
