@@ -1,6 +1,8 @@
 # Keno Server
 A simple server for a Keno lottery game, built using ExpressJS. Comes with an AngularJS front-end to test the API.
 
+You can view this application live on [https://keno-server.azurewebsites.net/](https://keno-server.azurewebsites.net/)
+
 ![UI](UI.jpg)
 # Build & Run
 ## Build
