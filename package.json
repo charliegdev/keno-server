@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "nodemon": "./node_modules/.bin/nodemon ./bin/www"
+    "nodemon": "./node_modules/.bin/nodemon ./bin/www",
+    "babel": "./node_modules/.bin/babel --watch ./public/es6/*.js --out-file ./public/dist/script.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -16,6 +17,8 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
