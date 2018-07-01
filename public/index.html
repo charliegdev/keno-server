@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <link rel="icon" href="images/favicon.jpg">
 
   <title>Keno API Server</title>
@@ -41,11 +43,11 @@
       <a target="_blank" href="https://apps.facebook.com/kenoempire/?fb_source=bookmark&ref=bookmarks&count=0&fb_bmpos=_0">Keno game</a>, without the lottery UI.</p>
     <hr class="my-4">
     <button id="start-game-button" type="button" class="btn btn-primary" ng-click="ctrl.startGame()">Start a Random Pick</button>
-    <button id="start-game-button" type="button" class="btn btn-warning" ng-click="ctrl.clearRecords()">Clear Records</button>
+    <button id="clear-records-button" type="button" class="btn btn-warning" ng-click="ctrl.clearRecords()">Clear Records</button>
   </main>
 
   <div class="container">
-    <table class="table">
+    <table class="table" ng-cloak>
       <thead class="thead-dark">
         <tr class="row">
           <th scope="col" class="col-1">#</th>
