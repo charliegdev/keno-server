@@ -8,20 +8,26 @@ const getResponseObj = (userPicks, wager) => {
   const id = uuidv4();
 
   // As pre requested in the email: the response includes a unique draw ID, the user’s input, the numbers drawn, winnings, and current timestamp.
-  // This response structure reflects the Caveman game response.data, minus the eggs.
+  // The extra hierarchy of an extra level of "data" is unnecessary for application to work.
+  // It's there only to make this response mimic the current caveman response.
   return { 
-    draw: {
-      created: (new Date()).toISOString(),
-      hit_count: matchedNumbers.length,
-      id,
-      reward,
-      spots_count: userPicks.length,
-      spots_drawn: spotsDrawn,
-      spots_played: userPicks, 
-      wager
+    data: {
+      draw: {
+        created: (new Date()).toISOString(),
+        hit_count: matchedNumbers.length,
+        id,
+        reward,
+        spots_count: userPicks.length,
+        spots_drawn: spotsDrawn,
+        spots_played: userPicks, 
+        wager
+      },
+      id, 
+      reward_key: uuidv4(),
+      wager,
+      winner: reward > 0
     },
-    id, 
-    wager,
+    type: "basicKeno#play"
   };
 };
 
